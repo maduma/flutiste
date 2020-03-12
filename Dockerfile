@@ -14,7 +14,7 @@ RUN cp jmx_prometheus_javaagent-0.12.0.jar mule/lib/opt/
 COPY wrapper-prometheus.conf .
 
 RUN cat wrapper-prometheus.conf >> mule/conf/wrapper.conf
-RUN "{}" >> mule/conf/prometheus.yaml
+RUN echo "{}" >> mule/conf/prometheus.yaml
 
 
 
