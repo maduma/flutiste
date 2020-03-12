@@ -3,19 +3,19 @@ version: "3.5"
 services:
 
   mule:
-    image: registry.in.luxair.lu/snsakala/mule-helloworld:1.0.3
-    container_name: mule-helloworld-1.0.3
+    image: {{ .Env.IMAGE }}
+    container_name: {{ .Env.APP_ID }}
     environment:
      - MULE_EVALUATION=TRUE
     networks:
      - "traefik"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.mule.rule=PathPrefix(`/mule-helloworld`)"
+      - "traefik.http.routers.mule.rule=PathPrefix(`/{{ .Env.APP_NAME }}`)"
       - "traefik.http.routers.mule.entrypoints=web"
       - "traefik.http.routers.mule.service=mule"
       - "traefik.http.services.mule.loadbalancer.server.port=8081"
-      - "traefik.http.routers.mulestat.rule=PathPrefix(`/mule-helloworld-metrics`)"
+      - "traefik.http.routers.mulestat.rule=PathPrefix(`/{{ .Env.APP_NAME }}-metrics`)"
       - "traefik.http.routers.mulestat.entrypoints=web"
       - "traefik.http.routers.mulestat.service=mulestat"
       - "traefik.http.services.mulestat.loadbalancer.server.port=9090"

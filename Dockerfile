@@ -10,14 +10,22 @@ RUN mv mule-enterprise-standalone-4.2.2 mule
 
 RUN wget https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.12.0/jmx_prometheus_javaagent-0.12.0.jar
 RUN cp jmx_prometheus_javaagent-0.12.0.jar mule/lib/opt/
+
 COPY prometheus.yaml mule/conf/
 COPY wrapper-prometheus.conf .
+
 RUN cat wrapper-prometheus.conf >> mule/conf/wrapper.conf
 
+
+
 FROM adoptopenjdk:8u232-b09-jdk-hotspot
+
+ARG VERSION
+ARG NAME
+
 RUN mkdir /app && groupadd mule && useradd -g mule mule && chown mule:mule /app
 COPY --from=builder --chown=mule /tmp/mule /app/mule
-COPY --chown=mule target/mule-helloworld-1.0.3-SNAPSHOT-mule-application.jar /app/mule/apps
+COPY --chown=mule target/$NAME-$VERSION-mule-application.jar /app/mule/apps
 COPY docker-entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
