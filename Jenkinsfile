@@ -41,7 +41,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 unstash name: 'jar'
-                sh "docker build --build-arg VERSION=${APP_VERSION} --build-arg NAME=${APP_NAME} -t ${IMAGE} ."
+                sh "docker build --build-arg APP_ID=${APP_ID} -t ${IMAGE} ."
             }
         }
 

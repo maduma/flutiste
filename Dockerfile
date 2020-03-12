@@ -20,12 +20,11 @@ RUN echo "{}" >> mule/conf/prometheus.yaml
 
 FROM adoptopenjdk:8u232-b09-jdk-hotspot
 
-ARG VERSION
-ARG NAME
+ARG APP_ID
 
 RUN mkdir /app && groupadd mule && useradd -g mule mule && chown mule:mule /app
 COPY --from=builder --chown=mule /tmp/mule /app/mule
-COPY --chown=mule target/$NAME-$VERSION-mule-application.jar /app/mule/apps
+COPY --chown=mule target/$APP_ID-mule-application.jar /app/mule/apps
 COPY docker-entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 

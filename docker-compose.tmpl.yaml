@@ -4,7 +4,7 @@ services:
 
   {{ .Env.APP_NAME }}:
     image: {{ .Env.IMAGE }}
-    container_name: {{ .Env.APP_ID }}
+    container_name: {{ .Env.APP_NAME }}
     environment:
      - MULE_EVALUATION=TRUE
      - MULE_MEMORY=128
