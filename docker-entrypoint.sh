@@ -24,4 +24,10 @@ if $MULE_HOME/bin/mule -verifyLicense | grep -q "Evaluation = true"; then
 	[ "$MULE_EVALUATION" == TRUE ] || exit 1
 fi
 
+# set Java memory size
+if [ -n "$MULE_MEMORY" ]; then
+	perl -i -pe "s/(wrapper.java.initmemory)=\d+/\1=$MULE_MEMORY" mule/conf/wrapper.conf
+	perl -i -pe "s/(wrapper.java.maxmemory)=\d+/\1=$MULE_MEMORY" mule/conf/wrapper.conf
+fi
+
 $MULE_HOME/bin/mule
