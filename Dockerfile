@@ -30,7 +30,7 @@ COPY docker-entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
 USER mule
-WORKDIR /app
+WORKDIR /app/mule
 ENV MULE_HOME=/app/mule
 
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
