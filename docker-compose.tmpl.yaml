@@ -7,7 +7,7 @@ services:
     container_name: {{ .Env.APP_ID }}
     environment:
      - MULE_EVALUATION=TRUE
-     - MULE_MEMORY=256
+     - MULE_MEMORY=128
     networks:
      - "traefik"
     labels:
