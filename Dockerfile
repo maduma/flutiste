@@ -11,10 +11,10 @@ RUN mv mule-enterprise-standalone-4.2.2 mule
 RUN wget https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.12.0/jmx_prometheus_javaagent-0.12.0.jar
 RUN cp jmx_prometheus_javaagent-0.12.0.jar mule/lib/opt/
 
-COPY prometheus.yaml mule/conf/
 COPY wrapper-prometheus.conf .
 
 RUN cat wrapper-prometheus.conf >> mule/conf/wrapper.conf
+RUN "{}" >> mule/conf/prometheus.yaml
 
 
 
