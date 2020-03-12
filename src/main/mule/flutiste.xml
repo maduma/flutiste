@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="79d25a3a-8796-4253-853b-579f8744a851" basePath="flutiste" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="flutisteFlow" doc:id="fde793d9-1fde-4b4a-a927-fb7b66f27923" >
+		<http:listener doc:name="Listener" doc:id="8214a8a5-2cb0-4429-9777-54f891df1c00" config-ref="HTTP_Listener_config" path="health"/>
+		<set-payload value='{"status": "pass"}' doc:name="Set Payload" doc:id="12b010dc-9b65-4f19-b6a0-1f29d4471f50" mimeType="application/json"/>
+	</flow>
+</mule>
