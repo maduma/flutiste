@@ -2,7 +2,7 @@ version: "3.5"
 
 services:
 
-  mule:
+  {{ .Env.APP_NAME }}:
     image: {{ .Env.IMAGE }}
     container_name: {{ .Env.APP_ID }}
     environment:
