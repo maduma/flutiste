@@ -16,7 +16,7 @@ pipeline {
 
         APP_ID = "${APP_NAME}-${APP_VERSION}"
         IMAGE =  "${REGISTRY_NAMESPACE}/${APP_NAME}:${APP_VERSION}"
-        REGISTRY_URL = ""
+        REGISTRY_URL = "https://index.docker.io/v1/"
         SERVICE_HEALTH_URL = "http://${DEPLOY_HOST}/${APP_NAME}/health"
     }
 
@@ -48,7 +48,7 @@ pipeline {
 
         stage('Push Docker Image') {
             steps {
-                withDockerRegistry([credentialsId: "${REGISTRY_CREDS_ID}", url: ""]) {
+                withDockerRegistry([credentialsId: "${REGISTRY_CREDS_ID}", url: "${REGISTRY_URL}"]) {
                     sh "docker push ${IMAGE}"
                 }
             }
