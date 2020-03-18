@@ -10,8 +10,9 @@ pipeline {
         DEPLOY_USER = "snsakala"
         DEPLOY_CREDS_ID = "deploy_toot"
 
-        APP_NAME = readMavenPom().getArtifactId()
-        APP_VERSION = readMavenPom().getVersion()
+        // This should be read from the pom.xm file
+        APP_NAME = "flutiste"
+        APP_VERSION = "1.0.0-SNAPSHOT"
 
         APP_ID = "${APP_NAME}-${APP_VERSION}"
         IMAGE =  "${REGISTRY}/${REGISTRY_NAMESPACE}/${APP_NAME}:${APP_VERSION}"
