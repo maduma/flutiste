@@ -3,7 +3,7 @@ pipeline {
      
     environment {
         REGISTRY = "registry-1.docker.io"
-        REGISTRY_NAMESPACE = "snsakala"
+        REGISTRY_NAMESPACE = "maduma"
         REGISTRY_CREDS_ID = "registry"
 
         DEPLOY_HOST = "cicd.maduma.org"
