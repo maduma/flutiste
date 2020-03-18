@@ -16,7 +16,8 @@ pipeline {
 
         APP_ID = "${APP_NAME}-${APP_VERSION}"
         IMAGE =  "${REGISTRY_NAMESPACE}/${APP_NAME}:${APP_VERSION}"
-        SERVICE_HEALTH_URL = "http://${DEPLOY_HOST}/${APP_NAME}/health"
+        SERVICE_HOST = "api.maduma.org"
+        SERVICE_HEALTH_URL = "https://${SERVICE_HOST}/${APP_NAME}/health"
     }
 
     stages {
