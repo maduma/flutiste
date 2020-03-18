@@ -89,6 +89,6 @@ def ssh_cmd(cmd) {
 
 def scp_file(file, target) {
     sshagent(["${DEPLOY_CREDS_ID}"]) {
-        sh "scp -o StrictHostKeyChecking=no $file ${DEPLOY_USER}@${DEPLOY_HOST}:$target"
+        sh "scp -o StrictHostKeyChecking=no $file ${DEPLOY_USER}@${DEPLOY_HOST}:$target/"
     }
 }
