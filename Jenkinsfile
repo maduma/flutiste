@@ -2,7 +2,7 @@ pipeline {
     agent any
      
     environment {
-        REGISTRY = "registry-1.docker.io"
+        REGISTRY = ""
         REGISTRY_NAMESPACE = "maduma"
         REGISTRY_CREDS_ID = "registry"
 
@@ -15,8 +15,8 @@ pipeline {
         APP_VERSION = "1.0.0-SNAPSHOT"
 
         APP_ID = "${APP_NAME}-${APP_VERSION}"
-        IMAGE =  "${REGISTRY}/${REGISTRY_NAMESPACE}/${APP_NAME}:${APP_VERSION}"
-        REGISTRY_URL = "https://${REGISTRY}"
+        IMAGE =  "${REGISTRY_NAMESPACE}/${APP_NAME}:${APP_VERSION}"
+        REGISTRY_URL = ""
         SERVICE_HEALTH_URL = "http://${DEPLOY_HOST}/${APP_NAME}/health"
     }
 
