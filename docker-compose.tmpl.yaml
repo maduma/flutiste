@@ -13,13 +13,8 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.{{ .Env.APP_NAME }}.rule=PathPrefix(`/{{ .Env.APP_NAME }}`)"
-      - "traefik.http.routers.{{ .Env.APP_NAME }}.entrypoints=web"
-      - "traefik.http.routers.{{ .Env.APP_NAME }}.service={{ .Env.APP_NAME }}"
-      - "traefik.http.services.{{ .Env.APP_NAME }}.loadbalancer.server.port=8081"
-      - "traefik.http.routers.{{ .Env.APP_NAME }}-metrics.rule=PathPrefix(`/{{ .Env.APP_NAME }}-metrics`)"
-      - "traefik.http.routers.{{ .Env.APP_NAME }}-metrics.entrypoints=web"
-      - "traefik.http.routers.{{ .Env.APP_NAME }}-metrics.service={{ .Env.APP_NAME }}-metrics"
-      - "traefik.http.services.{{ .Env.APP_NAME }}-metrics.loadbalancer.server.port=9090"
+      - "traefik.http.routers.{{ .Env.APP_NAME }}.entrypoints=websecure"
+      - "traefik.http.routers.{{ .Env.APP_NAME }}.tls.certresolver=certresolver"
 
 networks:
   traefik:
