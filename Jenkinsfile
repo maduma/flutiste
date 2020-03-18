@@ -2,13 +2,13 @@ pipeline {
     agent any
      
     environment {
-        REGISTRY = "registry.in.luxair.lu"
+        REGISTRY = "registry-1.docker.io"
         REGISTRY_NAMESPACE = "snsakala"
-        REGISTRY_CREDS_ID = "registry_toot"
+        REGISTRY_CREDS_ID = "registry"
 
-        DEPLOY_HOST = "toot.svr.luxair"
-        DEPLOY_USER = "snsakala"
-        DEPLOY_CREDS_ID = "deploy_toot"
+        DEPLOY_HOST = "cicd.maduma.org"
+        DEPLOY_USER = "deploy"
+        DEPLOY_CREDS_ID = "deploy"
 
         // This should be read from the pom.xm file
         APP_NAME = "flutiste"
