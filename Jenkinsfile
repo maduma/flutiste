@@ -2,7 +2,7 @@ pipeline {
     agent any
      
     environment {
-        REGISTRY = ""
+        REGISTRY_URL = "https://index.docker.io/v1/"
         REGISTRY_NAMESPACE = "maduma"
         REGISTRY_CREDS_ID = "registry"
 
@@ -16,7 +16,6 @@ pipeline {
 
         APP_ID = "${APP_NAME}-${APP_VERSION}"
         IMAGE =  "${REGISTRY_NAMESPACE}/${APP_NAME}:${APP_VERSION}"
-        REGISTRY_URL = "https://index.docker.io/v1/"
         SERVICE_HEALTH_URL = "http://${DEPLOY_HOST}/${APP_NAME}/health"
     }
 
@@ -55,7 +54,7 @@ pipeline {
         }
 
         stage('Make Deployment Configuration') {
-            agent { docker { image "${REGISTRY}/dockerize:0.6.1" } }
+            agent { docker { image "maduma/dockerize:0.6.1" } }
 
             steps {
                 sh "rm -fr ${APP_NAME} && mkdir ${APP_NAME}"
