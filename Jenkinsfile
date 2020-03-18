@@ -48,7 +48,7 @@ pipeline {
 
         stage('Push Docker Image') {
             steps {
-                withDockerRegistry([credentialsId: "${REGISTRY_CREDS_ID}", url: "${REGISTRY_URL}"]) {
+                withDockerRegistry([credentialsId: "${REGISTRY_CREDS_ID}", url: ""]) {
                     sh "docker push ${IMAGE}"
                 }
             }
