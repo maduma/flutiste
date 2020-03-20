@@ -1,10 +1,11 @@
-version: "3.5"
+version: "3.7"
 
 services:
 
   {{ .Env.APP_NAME }}:
     image: {{ .Env.IMAGE }}
     container_name: {{ .Env.APP_NAME }}
+    restart: unless-stopped
     environment:
      - MULE_EVALUATION=TRUE
      - MULE_MEMORY=128
