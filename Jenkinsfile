@@ -1,6 +1,6 @@
-library identifier: 'mulePipeline@pompiste', retriever: modernSCM([
+library identifier: 'mulePipeline@v0.3', retriever: modernSCM([
     $class: 'GitSCMSource',
     credentialsId: 'github',
-    remote: 'https://github.com/maduma/mule-pipeline.git'])
+    remote: 'https://gitlab.maduma.org/maduma/jenkins-mule-pipeline.git'])
 
 mulePipeline()
