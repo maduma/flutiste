@@ -9,6 +9,6 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</http:listener-config>
 	<flow name="flutisteFlow" doc:id="fde793d9-1fde-4b4a-a927-fb7b66f27923" >
 		<http:listener doc:name="Listener" doc:id="8214a8a5-2cb0-4429-9777-54f891df1c00" config-ref="HTTP_Listener_config" path="health"/>
-		<set-payload value='{"status": "pass", "version": "v0.0.2"}' doc:name="Set Payload" doc:id="12b010dc-9b65-4f19-b6a0-1f29d4471f50" mimeType="application/json"/>
+		<set-payload value='{"status": "pass", "version": "v0.0.1"}' doc:name="Set Payload" doc:id="12b010dc-9b65-4f19-b6a0-1f29d4471f50" mimeType="application/json"/>
 	</flow>
 </mule>
